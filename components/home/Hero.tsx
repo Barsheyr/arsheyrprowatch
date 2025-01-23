@@ -1,10 +1,15 @@
 import React from "react";
 import Container from "../global/Container";
-import HeroImg from "@/public/images/heroImg.jpg";
-import HeroImg2 from "@/public/images/heroImg2.svg";
 import HeroImage from "@/public/images/heroimg.svg";
 import HeroSearch from "./HeroSearch";
 import Image from "next/image";
+import Badge from "./Badge";
+import {
+  RiBriefcase4Fill,
+  RiTeamFill,
+  RiTodoFill,
+  RiArrowDownLine,
+} from "react-icons/ri";
 
 const Hero = () => {
   return (
@@ -22,8 +27,32 @@ const Hero = () => {
 
           <HeroSearch />
         </div>
-
-        <Image src={HeroImage} alt="HeroImg" className="rounded-2xl" />
+        <div className="hidden xl:flex relative">
+          {/* badge 1*/}
+          <Badge
+            containerStyles="absolute top-[24%] -left-[5rem]"
+            icon={<RiBriefcase4Fill />}
+            endCountNum={3}
+            badgeText="rd Best Seller"
+          />
+          {/* badge 2 */}
+          <Badge
+            containerStyles="absolute top-[80%] -left-[1rem]"
+            icon={<RiTodoFill />}
+            endCountNum={6}
+            endCountText="k"
+            badgeText="Watch Sold"
+          />
+          {/* badge 3 */}
+          <Badge
+            containerStyles="absolute top-[45%] -right-[1rem]"
+            icon={<RiTeamFill />}
+            endCountNum={2}
+            endCountText="k"
+            badgeText="Happy Clients"
+          />
+          <Image src={HeroImage} alt="HeroImg" className="rounded-2xl" />
+        </div>
       </div>
     </Container>
   );

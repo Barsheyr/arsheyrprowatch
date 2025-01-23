@@ -67,3 +67,7 @@
     @apply bg-background text-foreground;
   }
 }
+.badge {
+  @apply z-10 w-[200px] h-[69px] bg-white dark:backdrop-blur-[44px] shadow-2xl p-4 rounded-[10px] flex items-center
+  gap-x-6;
+}
