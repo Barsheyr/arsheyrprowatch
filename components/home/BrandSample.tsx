@@ -11,7 +11,7 @@ import Container from "../global/Container";
 const BrandSample = () => {
   return (
     <Container className="py-20">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         <div className="bg-gray-200 p-10 flex items-center justify-between gap-10 rounded-xl shadow-md">
           <Image src={Brand1} alt="Brand1" />
           <div className="space-y-2">
