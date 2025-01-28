@@ -4,7 +4,7 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-black text-white py-4 text-center">
+    <footer className="bg-black text-white py-10 text-center">
       <p className="text-sm">
         &copy; {currentYear} WatchPro Store. All rights reserved.
       </p>

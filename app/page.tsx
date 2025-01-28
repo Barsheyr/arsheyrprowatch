@@ -1,11 +1,31 @@
+"use client";
+
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import React from "react";
+
 import Hero from "@/components/home/Hero";
 import BrandSample from "@/components/home/BrandSample";
 import Testimonial from "@/components/home/Testimonial";
 import WatchCard from "@/components/WatchCard/WatchCard";
 import Container from "@/components/global/Container";
+import Iwatch2 from "@/public/images/iwatch2.png";
+import Iwatch from "@/public/images/iwatch.png";
+import Iwatch3 from "@/public/images/iwatch3.png";
+import Iwatch4 from "@/public/images/iwatch4.png";
+import Newsletter from "@/components/home/Newsletter";
 
 const page = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
+    });
+  }, []);
+
   return (
     <section>
       <div className="bg-black">
@@ -15,12 +35,12 @@ const page = () => {
 
       <section className="py-20">
         <Container>
-          <div className="text-center mb-20">
-            <h2 className="text-3xl font-bold"> Our Latest Products </h2>
+          <div data-aos="fade-down" className="text-center mb-20">
+            <h2 className="text-5xl font-bold"> Our Latest Products </h2>
           </div>
 
           <div>
-            <div className="grid lg:grid-cols-4 grid-cols-2 gap-5">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
               {watches.map((game) => (
                 <WatchCard
                   key={game.id}
@@ -35,6 +55,7 @@ const page = () => {
         </Container>
       </section>
       <Testimonial />
+      <Newsletter />
     </section>
   );
 };
@@ -47,31 +68,41 @@ const watches = [
     price: 12,
     name: "Watch1",
     slug: "watch1",
-    image:
-      "https://images.unsplash.com/photo-1444881421460-d838c3b98f95?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: Iwatch2,
   },
   {
     id: 2,
     price: 14,
     name: "Watch2",
     slug: "watch2",
-    image:
-      "https://images.unsplash.com/photo-1488132828189-4e416661b680?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: Iwatch,
   },
   {
     id: 3,
     price: 42,
     name: "Watch3 ",
     slug: "watch3",
-    image:
-      "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGxheSUyMHN0YXRpb24lMjBmaWZhfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    image: Iwatch3,
   },
   {
     id: 4,
     price: 27,
     name: "Watch4",
     slug: "watch4",
-    image:
-      "https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=1999&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: Iwatch4,
+  },
+  {
+    id: 5,
+    price: 36,
+    name: "Watch5",
+    slug: "watch5",
+    image: Iwatch2,
+  },
+  {
+    id: 6,
+    price: 78,
+    name: "Watch6",
+    slug: "watch6",
+    image: Iwatch,
   },
 ];
