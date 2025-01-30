@@ -11,7 +11,7 @@ const Navbar = () => {
       <Container className="flex flex-col sm:flex-row sm:justify-between sm:items-center flex-wrap py-5 gap-4">
         <Logo />
 
-        <div>
+        <div className="hidden lg:flex">
           <NavLinks />
         </div>
 

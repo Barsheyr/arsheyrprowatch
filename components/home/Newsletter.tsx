@@ -10,7 +10,7 @@ const Newsletter = () => {
       <div className="flex flex-row items-center justify-between py-10 px-20 bg-gray-100">
         <div>
           <div className="space-y-2">
-            <h1 className="text-5xl font-semibold">Subscribe To Newsletter</h1>
+            <h1 className="text-5xl font-semibold">Contact US on Whatsaap</h1>
             <p className="text-gray-400">
               Get free guide about smart watches daily
             </p>
@@ -25,7 +25,7 @@ const Newsletter = () => {
                 className="flex-1 bg-transparent focus:outline-none px-3 text-gray-600"
               />
               <button className="bg-blue-600 text-white px-4 py-2 rounded-full font-medium hover:bg-blue-700 transition">
-                Subscribe
+                Submit
               </button>
             </div>
           </div>
