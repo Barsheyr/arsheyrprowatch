@@ -20,6 +20,7 @@ import Iwatch6 from "@/public/images/samsungpro.png";
 import Newsletter from "@/components/home/Newsletter";
 import Link from "next/link";
 import Image from "next/image";
+import WatchCategoryCard from "@/components/WatchCategoryCard/WatchCategoryCard";
 
 const page = () => {
   useEffect(() => {
@@ -36,7 +37,6 @@ const page = () => {
         <Hero />
       </div>
       <BrandSample />
-
       <section className="py-20">
         <Container>
           <div data-aos="fade-down" className="text-center mb-20">
@@ -59,6 +59,7 @@ const page = () => {
         </Container>
       </section>
 
+      {/* FEATURED */}
       <section className="mx-auto max-w-7xl py-20">
         <>
           <h3 className="font-semibold text-3xl max-w-3xl text-center mx-auto text-primary-dark pt-12 sm:pt-28 pb-8 sm:pb-16 leading-[125%] sm:leading-[187%]">
@@ -85,6 +86,39 @@ const page = () => {
             </div>
           </section>
         </>
+      </section>
+
+      {/* CATEGORIES */}
+      <section
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1519153017650-55aad829d4e6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        }}
+      >
+        <div className="text-white">
+          <div className="text-center mx-auto max-w-5xl">
+            <h2 className="text-5xl py-10">Categories</h2>
+            <p>
+              Discover a collection of timepieces that combine classic design
+              and modern functionality. Explore an array of watches, from
+              elegant chronographs to minimalist styles, crafted for durability
+              and precision. Make a statement with versatile designs, perfect
+              for daily wear or special occasions, and experience the art of
+              watchmaking that will keep you stylish and punctual.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 mt-10 p-20">
+            {categories.map((category) => (
+              <WatchCategoryCard
+                key={category.id}
+                categoryImage={category.image}
+                categoryName={category.name}
+                slug={category.slug}
+              />
+            ))}
+          </div>
+        </div>
       </section>
       <Testimonial />
       <Newsletter />
@@ -136,6 +170,37 @@ const watches = [
     name: "Series5",
     slug: "watch6",
     image: Iwatch5,
+  },
+];
+
+const categories = [
+  {
+    id: 1,
+    price: 12,
+    name: "Series 1",
+    slug: "watch1",
+    image: Iwatch2,
+  },
+  {
+    id: 2,
+    price: 14,
+    name: "Series 2",
+    slug: "watch2",
+    image: Iwatch,
+  },
+  {
+    id: 3,
+    price: 42,
+    name: "Series 3",
+    slug: "watch3",
+    image: Iwatch3,
+  },
+  {
+    id: 4,
+    price: 27,
+    name: "Series 4",
+    slug: "watch4",
+    image: Iwatch4,
   },
 ];
 

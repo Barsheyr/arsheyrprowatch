@@ -7,9 +7,9 @@ import Image from "next/image";
 const Newsletter = () => {
   return (
     <Container className="py-20">
-      <div className="flex flex-row items-center justify-between py-10 px-20 bg-gray-100">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-20 py-10 px-20 bg-gray-100">
         <div>
-          <div className="space-y-2">
+          <div className="space-y-2 text-center lg:text-left">
             <h1 className="text-5xl font-semibold">Contact US on Whatsaap</h1>
             <p className="text-gray-400">
               Get free guide about smart watches daily
