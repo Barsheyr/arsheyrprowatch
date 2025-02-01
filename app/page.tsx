@@ -11,12 +11,19 @@ import BrandSample from "@/components/home/BrandSample";
 import Testimonial from "@/components/home/Testimonial";
 import WatchCard from "@/components/WatchCard/WatchCard";
 import Container from "@/components/global/Container";
-import Iwatch2 from "@/public/images/iwatch2.png";
-import Iwatch from "@/public/images/iwatch.png";
-import Iwatch3 from "@/public/images/iwatch3.png";
-import Iwatch4 from "@/public/images/iwatch4.png";
-import Iwatch5 from "@/public/images/fitbit.png";
-import Iwatch6 from "@/public/images/samsungpro.png";
+// import Iwatch2 from "@/public/images/iwatch2.png";
+// import Iwatch from "@/public/images/iwatch.png";
+// import Iwatch3 from "@/public/images/iwatch3.png";
+// import Iwatch4 from "@/public/images/iwatch4.png";
+// import Iwatch5 from "@/public/images/fitbit.png";
+// import Iwatch6 from "@/public/images/samsungpro.png";
+const Iwatch2 = "/images/iwatch2.png"; // ✅ Correct
+const Iwatch = "/images/iwatch.png";
+const Iwatch3 = "/images/iwatch3.png";
+const Iwatch4 = "/images/iwatch4.png";
+const Iwatch5 = "/images/fitbit.png";
+const Iwatch6 = "/images/samsungpro.png";
+
 import Newsletter from "@/components/home/Newsletter";
 import Link from "next/link";
 import Image from "next/image";
