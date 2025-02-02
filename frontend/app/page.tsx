@@ -95,7 +95,7 @@ const page = () => {
         </>
       </section>
 
-      {/* CATEGORIES */}
+      {/* BRAND */}
       <section
         style={{
           backgroundImage:
@@ -104,7 +104,7 @@ const page = () => {
       >
         <div className="text-white">
           <div className="text-center mx-auto max-w-5xl">
-            <h2 className="text-5xl py-10">Categories</h2>
+            <h2 className="text-5xl py-10"> BRAND </h2>
             <p>
               Discover a collection of timepieces that combine classic design
               and modern functionality. Explore an array of watches, from
