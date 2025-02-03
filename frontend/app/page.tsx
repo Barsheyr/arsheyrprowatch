@@ -1,9 +1,8 @@
-"use client";
+// "use client";
 
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-
+// import { useEffect } from "react";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 import React from "react";
 
 import Hero from "@/components/home/Hero";
@@ -11,12 +10,6 @@ import BrandSample from "@/components/home/BrandSample";
 import Testimonial from "@/components/home/Testimonial";
 import WatchCard from "@/components/WatchCard/WatchCard";
 import Container from "@/components/global/Container";
-// import Iwatch2 from "@/public/images/iwatch2.png";
-// import Iwatch from "@/public/images/iwatch.png";
-// import Iwatch3 from "@/public/images/iwatch3.png";
-// import Iwatch4 from "@/public/images/iwatch4.png";
-// import Iwatch5 from "@/public/images/fitbit.png";
-// import Iwatch6 from "@/public/images/samsungpro.png";
 const Iwatch2 = "/images/iwatch2.png"; // ✅ Correct
 const Iwatch = "/images/iwatch.png";
 const Iwatch3 = "/images/iwatch3.png";
@@ -29,14 +22,19 @@ import Link from "next/link";
 import Image from "next/image";
 import WatchCategoryCard from "@/components/WatchCategoryCard/WatchCategoryCard";
 
-const page = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      easing: "ease-in-out",
-      once: true,
-    });
-  }, []);
+import { getCategories, getWatches } from "../lib/api";
+
+export default async function Home() {
+  const categories = await getCategories();
+  const watches = await getWatches();
+
+  // useEffect(() => {
+  //   AOS.init({
+  //     duration: 1000,
+  //     easing: "ease-in-out",
+  //     once: true,
+  //   });
+  // }, []);
 
   return (
     <section>
@@ -54,10 +52,10 @@ const page = () => {
             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
               {watches.map((game) => (
                 <WatchCard
-                  key={game.id}
+                  key={game._id}
                   watchName={game.name}
-                  imageUrl={game.image}
-                  slug={game.slug}
+                  imageUrl={game.images[0].url}
+                  slug={game.slug.current}
                   price={game.price}
                 />
               ))}
@@ -118,10 +116,10 @@ const page = () => {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 mt-10 p-20">
             {categories.map((category) => (
               <WatchCategoryCard
-                key={category.id}
+                key={category._id}
                 categoryImage={category.image}
                 categoryName={category.name}
-                slug={category.slug}
+                slug={category.slug.current}
               />
             ))}
           </div>
@@ -131,9 +129,7 @@ const page = () => {
       <Newsletter />
     </section>
   );
-};
-
-export default page;
+}
 
 const watches = [
   {
@@ -180,36 +176,35 @@ const watches = [
   },
 ];
 
-const categories = [
-  {
-    id: 1,
-    price: 12,
-    name: "Series 1",
-    slug: "watch1",
-    image: Iwatch2,
-  },
-  {
-    id: 2,
-    price: 14,
-    name: "Series 2",
-    slug: "watch2",
-    image: Iwatch,
-  },
-  {
-    id: 3,
-    price: 42,
-    name: "Series 3",
-    slug: "watch3",
-    image: Iwatch3,
-  },
-  {
-    id: 4,
-    price: 27,
-    name: "Series 4",
-    slug: "watch4",
-    image: Iwatch4,
-  },
-];
+//   {
+//     id: 1,
+//     price: 12,
+//     name: "Series 1",
+//     slug: "watch1",
+//     image: Iwatch2,
+//   },
+//   {
+//     id: 2,
+//     price: 14,
+//     name: "Series 2",
+//     slug: "watch2",
+//     image: Iwatch,
+//   },
+//   {
+//     id: 3,
+//     price: 42,
+//     name: "Series 3",
+//     slug: "watch3",
+//     image: Iwatch3,
+//   },
+//   {
+//     id: 4,
+//     price: 27,
+//     name: "Series 4",
+//     slug: "watch4",
+//     image: Iwatch4,
+//   },
+// ];
 
 const featuredGame = {
   name: "Richard Mille",
