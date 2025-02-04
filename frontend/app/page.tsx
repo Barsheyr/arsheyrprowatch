@@ -22,11 +22,13 @@ import Link from "next/link";
 import Image from "next/image";
 import WatchCategoryCard from "@/components/WatchCategoryCard/WatchCategoryCard";
 
-import { getCategories, getWatches } from "../lib/api";
+import { getBrands, getWatches } from "../lib/api";
 
 export default async function Home() {
-  const categories = await getCategories();
+  const brands = await getBrands();
   const watches = await getWatches();
+  const isTrendingGames = watches?.filter((watch) => watch.isTrending);
+  const isFeaturedGame = watches?.find((watch) => watch.isFeatured);
 
   // useEffect(() => {
   //   AOS.init({
@@ -114,12 +116,12 @@ export default async function Home() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 mt-10 p-20">
-            {categories.map((category) => (
+            {brands.map((brand) => (
               <WatchCategoryCard
-                key={category._id}
-                categoryImage={category.image}
-                categoryName={category.name}
-                slug={category.slug.current}
+                key={brand._id}
+                categoryImage={brand.image}
+                categoryName={brand.name}
+                slug={brand.slug.current}
               />
             ))}
           </div>

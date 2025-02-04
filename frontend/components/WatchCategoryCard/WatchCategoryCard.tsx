@@ -13,7 +13,7 @@ const WatchCategoryCard: FC<WatchCategoryCardProps> = (props) => {
   return (
     <div className="border border-gray-100 rounded-lg mb-4 relative overflow-hidden group transition">
       <Link
-        href={`categories/${slug}`}
+        href={`brand/${slug}`}
         className="border border-red-100 flex justify-center p-10"
       >
         <Image

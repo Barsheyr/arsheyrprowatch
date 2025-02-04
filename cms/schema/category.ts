@@ -1,9 +1,9 @@
-// Category Schema
+// Watch Schema
 
 export default {
-  name: 'category',
+  name: 'brand',
   type: 'document',
-  title: 'Category',
+  title: 'Brand',
   fields: [
     {
       name: 'name',

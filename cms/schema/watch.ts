@@ -48,9 +48,9 @@ export default {
       validation: (Rule: any) => Rule.required(),
     },
     {
-      name: 'category',
+      name: 'brand',
       type: 'reference',
-      to: [{type: 'category'}],
+      to: [{type: 'brand'}],
       validation: (Rule: any) => Rule.required(),
     },
     {
