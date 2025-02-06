@@ -15,7 +15,7 @@ const WatchBrand = async (props: { params: { slug: string } }) => {
       <section>
         <div>
           <div className="lg:w-3/4">
-            <h1>{slug.toUpperCase()} Games</h1>
+            <h1 className="text-4xl">{slug.toUpperCase()} Watches </h1>
             <p>{subtitle}</p>
           </div>
         </div>
@@ -25,7 +25,7 @@ const WatchBrand = async (props: { params: { slug: string } }) => {
         <h2>{slug.toUpperCase()} Brand </h2>
         <p>
           Checkout our latest collection of
-          <span className="text-primary">{slug}</span> games
+          <span className="text-black">{slug}</span> watch
         </p>
         <div className="flex rounded gap-8 flex-wrap py-10">
           {watches.map((watch) => (

@@ -44,7 +44,7 @@ export default async function Home() {
         <Hero />
       </div>
       <BrandSample />
-      <section className="py-20">
+      <section className="py-10">
         <Container>
           <div data-aos="fade-down" className="text-center mb-20">
             <h2 className="text-5xl font-bold"> Our Latest Products </h2>
@@ -67,10 +67,10 @@ export default async function Home() {
       </section>
 
       {/* FEATURED */}
-      <section className="mx-auto max-w-7xl py-20">
+      <section className="mx-auto max-w-7xl py-10">
         <>
           <h3 className="font-semibold text-3xl max-w-3xl text-center mx-auto text-primary-dark pt-12 sm:pt-28 pb-8 sm:pb-16 leading-[125%] sm:leading-[187%]">
-            Featured Game
+            Featured Watch
           </h3>
 
           <section className="px-6 sm:px-12 md:px-20 lg:px-36 mx-auto py-5 text-black">
