@@ -1,9 +1,9 @@
 import React from "react";
-import { getBrands } from "../../lib/api";
-import WatchCategoryCard from "@/components/WatchCategoryCard/WatchCategoryCard";
+import { getWatches } from "../../lib/api";
+import WatchCard from "@/components/WatchCard/WatchCard";
 
-export default async function Home() {
-  const brands = await getBrands();
+export default async function Watches() {
+  const watches = await getWatches();
 
   return (
     <section
@@ -14,7 +14,7 @@ export default async function Home() {
     >
       <div className="text-white">
         <div className="text-center mx-auto max-w-5xl">
-          <h2 className="text-5xl py-10"> BRAND </h2>
+          <h2 className="text-5xl py-10"> Watches </h2>
           <p>
             Discover a collection of timepieces that combine classic design and
             modern functionality. Explore an array of watches, from elegant
@@ -24,18 +24,19 @@ export default async function Home() {
             watchmaking that will keep you stylish and punctual.
           </p>
         </div>
+      </div>
 
-        <div className="max-w-7xl mx-auto mt-20">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 mt-10 p-20">
-            {brands.map((brand) => (
-              <WatchCategoryCard
-                key={brand._id}
-                categoryImage={brand.image}
-                categoryName={brand.name}
-                slug={brand.slug.current}
-              />
-            ))}
-          </div>
+      <div className="max-w-7xl mx-auto mt-20">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 text-white">
+          {watches.map((game) => (
+            <WatchCard
+              key={game._id}
+              watchName={game.name}
+              imageUrl={game.images[0].url}
+              slug={game.slug.current}
+              price={game.price}
+            />
+          ))}
         </div>
       </div>
     </section>

@@ -11,21 +11,23 @@ interface WatchCategoryCardProps {
 const WatchCategoryCard: FC<WatchCategoryCardProps> = (props) => {
   const { categoryImage, categoryName, slug } = props;
   return (
-    <div className="border border-gray-100 rounded-lg mb-4 relative overflow-hidden group transition">
-      <Link
-        href={`brand/${slug}`}
-        className="border border-red-100 flex justify-center p-10"
-      >
-        <Image
-          src={categoryImage}
-          alt={categoryName}
-          width={200}
-          height={200}
-          className=" group-hover:scale-110 transition duration-300"
-        />
-        <h3 className="">{categoryName}</h3>
-        {/* <Image src=" alt="view" width={20} height={20} /> */}
-      </Link>
+    <div>
+      <div className="border border-gray-100 bg-gray-100 h-[300px] rounded-lg mb-4 relative overflow-hidden group transition">
+        <Link
+          href={`brand/${slug}`}
+          className="mx-auto flex flex-col justify-center items-center"
+        >
+          <Image
+            src={categoryImage}
+            alt={categoryName}
+            width={200}
+            height={200}
+            className=" group-hover:scale-110 transition duration-300"
+          />
+        </Link>
+      </div>
+
+      <h3 className="font-bold text-2xl">{categoryName}</h3>
     </div>
   );
 };
