@@ -17,7 +17,6 @@ const WatchCard: FC<WatchCardProps> = (props) => {
 
   return (
     <Link href={`/watches/${slug}`}>
-      {/* <div className="w-[200px] mx-auto flex justify-center items-center"> */}
       <div className="border border-gray-100 bg-gray-100 rounded-lg h-[300px] mb-4 relative overflow-hidden group transition">
         <div className="mx-auto flex justify-center items-center">
           <Image
