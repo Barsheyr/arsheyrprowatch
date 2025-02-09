@@ -5,8 +5,6 @@ import { BsEyeFill, BsPlus } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa6";
 import { FiShoppingCart } from "react-icons/fi";
 
-// import watchCardClassNames from "./watchCardClassName";
-
 interface WatchCardProps {
   watchName: string;
   imageUrl: any;

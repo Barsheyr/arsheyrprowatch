@@ -11,21 +11,24 @@ const WatchBrand = async (props: { params: { slug: string } }) => {
   const { subtitle } = await getBrand(slug);
 
   return (
-    <>
-      <section>
-        <div>
-          <div className="lg:w-3/4">
+    <section className="">
+      <section
+        className="bg-black text-white relative py-16 md:py-20 bg-cover 
+      bg-[url('https://images.unsplash.com/photo-1616353329454-4350ed03a0b2?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]"
+      >
+        <div className="mx-auto max-w-5xl px-20">
+          <div className="lg:w-3/4 py-20 font-bold">
             <h1 className="text-4xl">{slug.toUpperCase()} Watches </h1>
             <p>{subtitle}</p>
           </div>
         </div>
       </section>
 
-      <section>
-        <h2>{slug.toUpperCase()} Brand </h2>
+      <section className="mx-auto max-w-5xl p-20 ">
+        <h2 className="text-3xl">{slug.toUpperCase()} Brand </h2>
         <p>
           Checkout our latest collection of
-          <span className="text-black">{slug}</span> watch
+          <span className="text-black"> {slug} </span> watch
         </p>
         <div className="flex rounded gap-8 flex-wrap py-10">
           {watches.map((watch) => (
@@ -41,7 +44,7 @@ const WatchBrand = async (props: { params: { slug: string } }) => {
       </section>
 
       {/* <NewsLetter /> */}
-    </>
+    </section>
   );
 };
 
