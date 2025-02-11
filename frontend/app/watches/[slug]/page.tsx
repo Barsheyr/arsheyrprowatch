@@ -1,7 +1,16 @@
-import React from "react";
+import WatchDetailsClient from "../../../components/WatchDetails/WatchDetailsClient";
+import WatchDetailsServer from "../../../components/WatchDetails/WatchDetailsServer";
 
-const page = () => {
-  return <div>page</div>;
+const WatchItem = async (props: { params: { slug: string } }) => {
+  const {
+    params: { slug },
+  } = props;
+
+  return (
+    <WatchDetailsClient slug={slug}>
+      <WatchDetailsServer slug={slug} />
+    </WatchDetailsClient>
+  );
 };
 
-export default page;
+export default WatchItem;

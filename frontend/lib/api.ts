@@ -67,3 +67,27 @@ export const getBrand = async (slug: string): Promise<Brand> => {
 
   return brand;
 };
+
+export const getWatch = async (slug: string): Promise<Watch> => {
+  const query = `*[_type == "watch" && slug.current == "${slug}"][0] {
+        _id,
+        name,
+        price,
+        images,
+        isFeatured,
+        isTrending,
+        'category': *[_id == ^.category._ref][0] {
+          name,
+          slug {
+            current
+          }
+        },
+        slug,
+        quantity,
+        description
+  }`;
+
+  const watch: Watch = await sanityClient.fetch({ query });
+
+  return watch;
+};
