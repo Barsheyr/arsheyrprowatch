@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/global/Footer";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Providers } from "@/redux/Provider";
 
 export const metadata: Metadata = {
   title: "Adisa Alago",
@@ -27,9 +28,11 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={poppins.className}>
-          <Navbar />
-          {children}
-          <Footer />
+          <Providers>
+            <Navbar />
+            {children}
+            <Footer />
+          </Providers>
         </body>
       </html>
     </ClerkProvider>
