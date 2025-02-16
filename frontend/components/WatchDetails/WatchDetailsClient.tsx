@@ -5,6 +5,8 @@ import { FaShoppingCart } from "react-icons/fa";
 import { getWatch } from "../../lib/api";
 import CarouselSlider from "@/components/CarouselSlider/CarouselSlider";
 import { Watch } from "../../models/watch";
+import { useAppDispatch } from "../../hooks/storeHooks";
+import { addItemToCart } from "@/redux/features/cartSlice";
 
 const WatchDetailsClient = (props: {
   slug: string;
@@ -15,7 +17,7 @@ const WatchDetailsClient = (props: {
   const [quantity, setQuantity] = useState(0);
   const [price, setPrice] = useState(0);
   const [watchDetails, setWatchDetails] = useState<Watch>();
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const fetchGameDetails = async () => {
@@ -44,7 +46,7 @@ const WatchDetailsClient = (props: {
 
   const handleAddToCart = () => {
     if (!watchDetails) return;
-    // dispatch(addItemToCart({ ...gameDetails, quantity }));
+    dispatch(addItemToCart({ ...watchDetails, quantity }));
   };
 
   return (

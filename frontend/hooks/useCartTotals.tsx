@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useAppSelector } from "./storeHook";
+import { useAppSelector } from "./storeHooks";
 
 interface CartTotals {
   totalPrice: number;
@@ -36,3 +36,7 @@ const useCartTotals = (): CartTotals => {
 };
 
 export default useCartTotals;
+
+useEffect(() => {
+  const ex = () => {};
+}, []);
