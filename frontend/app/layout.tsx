@@ -5,6 +5,10 @@ import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/global/Footer";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Providers } from "@/redux/Provider";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // Import the toast styles
+// import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "react-hot-toast"; // Make sure you have this import
 
 export const metadata: Metadata = {
   title: "Adisa Alago",
@@ -28,6 +32,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={poppins.className}>
+          <Toaster position="top-right" reverseOrder={false} />
           <Providers>
             <Navbar />
             {children}

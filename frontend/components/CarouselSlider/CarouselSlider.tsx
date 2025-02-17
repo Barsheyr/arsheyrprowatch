@@ -44,7 +44,7 @@ const CarouselSlider: FC<CarouselSliderProps> = (props) => {
 
   return (
     <div className={classNames.container}>
-      {images.map((image, index) => (
+      {(images || []).map((image, index) => (
         <Image
           key={image._key}
           src={image.url}

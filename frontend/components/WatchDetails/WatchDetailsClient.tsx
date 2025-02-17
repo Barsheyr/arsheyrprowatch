@@ -7,6 +7,7 @@ import CarouselSlider from "@/components/CarouselSlider/CarouselSlider";
 import { Watch } from "../../models/watch";
 import { useAppDispatch } from "../../hooks/storeHooks";
 import { addItemToCart } from "@/redux/features/cartSlice";
+import { toast } from "react-hot-toast"; // Import toast from react-hot-toast
 
 const WatchDetailsClient = (props: {
   slug: string;
@@ -47,6 +48,11 @@ const WatchDetailsClient = (props: {
   const handleAddToCart = () => {
     if (!watchDetails) return;
     dispatch(addItemToCart({ ...watchDetails, quantity }));
+
+    // Show a toast message that the item has been added to the cart
+    toast.success(`${watchDetails.name} added to cart!`, {
+      position: "top-right",
+    });
   };
 
   return (
