@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { useToast } from "../../hooks/use-toast";
@@ -7,24 +8,37 @@ function ThirdColumn({
   quantity,
   id,
   updateQuantity,
+  removeItem,
 }: {
   quantity: number;
   id: string;
   updateQuantity: (id: string, newQuantity: number) => void;
+  removeItem: (id: string) => void;
 }) {
   const [amount, setAmount] = useState(quantity);
   const { toast } = useToast();
 
+  // Handle quantity change
   const handleAmountChange = (newAmount: number) => {
-    if (newAmount < 1) return; // Prevent negative quantities
+    if (newAmount < 1) return;
 
     setAmount(newAmount);
     updateQuantity(id, newAmount);
 
     toast({
       description: `Quantity updated to ${newAmount}`,
-      variant: "default", // Optional, can be "destructive" or other variants
-      duration: 2000, // Toast disappears after 2 seconds
+      variant: "default",
+      duration: 2000,
+    });
+  };
+
+  // Handle removing the item from the cart
+  const handleRemoveItem = () => {
+    removeItem(id); // Call removeItem function passed from parent (CartPage)
+    toast({
+      description: `Item removed from cart`,
+      variant: "destructive",
+      duration: 2000,
     });
   };
 
@@ -45,6 +59,13 @@ function ThirdColumn({
         onClick={() => handleAmountChange(amount + 1)}
       >
         +
+      </Button>
+      <Button
+        size="sm"
+        variant="destructive"
+        onClick={handleRemoveItem} // Add the "Remove" button functionality
+      >
+        Remove
       </Button>
     </div>
   );
