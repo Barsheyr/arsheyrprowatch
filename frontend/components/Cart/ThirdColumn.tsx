@@ -2,28 +2,23 @@
 
 import { useState } from "react";
 import { Button } from "../ui/button";
+import { useAppDispatch } from "../../hooks/storeHooks";
+import {
+  updateQuantity,
+  removeItemFromCart,
+} from "../../redux/features/cartSlice";
 import { useToast } from "../../hooks/use-toast";
 
-function ThirdColumn({
-  quantity,
-  id,
-  updateQuantity,
-  removeItem,
-}: {
-  quantity: number;
-  id: string;
-  updateQuantity: (id: string, newQuantity: number) => void;
-  removeItem: (id: string) => void;
-}) {
+function ThirdColumn({ quantity, id }: { quantity: number; id: string }) {
+  const dispatch = useAppDispatch();
   const [amount, setAmount] = useState(quantity);
   const { toast } = useToast();
 
-  // Handle quantity change
   const handleAmountChange = (newAmount: number) => {
     if (newAmount < 1) return;
 
     setAmount(newAmount);
-    updateQuantity(id, newAmount);
+    dispatch(updateQuantity({ _id: id, quantity: newAmount }));
 
     toast({
       description: `Quantity updated to ${newAmount}`,
@@ -32,9 +27,8 @@ function ThirdColumn({
     });
   };
 
-  // Handle removing the item from the cart
   const handleRemoveItem = () => {
-    removeItem(id); // Call removeItem function passed from parent (CartPage)
+    dispatch(removeItemFromCart({ _id: id }));
     toast({
       description: `Item removed from cart`,
       variant: "destructive",
@@ -60,11 +54,7 @@ function ThirdColumn({
       >
         +
       </Button>
-      <Button
-        size="sm"
-        variant="destructive"
-        onClick={handleRemoveItem} // Add the "Remove" button functionality
-      >
+      <Button size="sm" variant="destructive" onClick={handleRemoveItem}>
         Remove
       </Button>
     </div>

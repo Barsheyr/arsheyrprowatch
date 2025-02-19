@@ -1,23 +1,19 @@
 import { WatchSubset } from "@/models/watch";
-import ThirdColumn from "./ThirdColumn"; // Ensure the correct import for ThirdColumn
+import ThirdColumn from "./ThirdColumn";
 import { Card } from "@/components/ui/card";
 import { FirstColumn, SecondColumn, FourthColumn } from "./CartItemCoulmn";
 
 interface CartItemsListProps {
   cartItems: WatchSubset[];
-  removeItem: (id: string) => void; // Accept removeItem prop
 }
 
-const CartItemsList: React.FC<CartItemsListProps> = ({
-  cartItems,
-  removeItem,
-}) => {
+const CartItemsList: React.FC<CartItemsListProps> = ({ cartItems }) => {
   return (
     <div>
       {cartItems.map((cartItem) => {
         const { _id, name, price, quantity, images } = cartItem;
         const imageUrl =
-          images.length > 0 ? images[0].url : "/default-image.jpg"; // Use default image if missing
+          images.length > 0 ? images[0].url : "/default-image.jpg";
 
         return (
           <Card
@@ -31,12 +27,7 @@ const CartItemsList: React.FC<CartItemsListProps> = ({
               productId={_id}
               slug={name.toLowerCase().replace(/\s+/g, "-")}
             />
-            <ThirdColumn
-              id={_id}
-              quantity={quantity}
-              updateQuantity={() => {}}
-              removeItem={removeItem}
-            />
+            <ThirdColumn id={_id} quantity={quantity} />
             <FourthColumn price={price * quantity} />
           </Card>
         );

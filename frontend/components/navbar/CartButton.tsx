@@ -9,7 +9,7 @@ import { RootState } from "../../redux/store";
 function CartButton() {
   const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 
-  // Calculate the total number of items in the cart
+  // Calculate total items in the cart
   const totalItemsInCart = cartItems.reduce(
     (total, item) => total + item.quantity,
     0
