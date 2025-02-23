@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const NavLinks = () => {
   return (
-    <div className="flex items-center justify-between gap-5 text-sm">
+    <div className="flex items-center justify-between text-white gap-5 text-sm">
       {links.map((link) => {
         return (
           <div key={link.href}>

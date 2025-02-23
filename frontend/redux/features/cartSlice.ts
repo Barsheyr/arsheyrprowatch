@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { Watch } from "@/models/watch";
 
 interface CartState {
-  showCart: boolean;
+  // showCart: boolean;
   cartItems: Watch[];
 }
 
@@ -12,7 +12,6 @@ const cartFromLocalStorage =
     : [];
 
 const initialState: CartState = {
-  showCart: false,
   cartItems: cartFromLocalStorage,
 };
 
@@ -20,9 +19,6 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    toggleCart(state) {
-      state.showCart = !state.showCart;
-    },
     addItemToCart: (state, action: PayloadAction<Watch>) => {
       const newItem = action.payload;
       const existingItem = state.cartItems.find(
@@ -57,6 +53,6 @@ const cartSlice = createSlice({
   },
 });
 
-export const { toggleCart, addItemToCart, updateQuantity, removeItemFromCart } =
+export const { addItemToCart, updateQuantity, removeItemFromCart } =
   cartSlice.actions;
 export default cartSlice.reducer;

@@ -5,3 +5,11 @@
 html {
   font-family: var(--font-montserrat), var(--font-poppins), sans-serif;
 }
+
+/* Force Clerk modal to light mode */
+.cl-modal,
+.cl-overlay {
+  background-color: white !important;
+  color: black !important;
+  z-index: 50 !important;
+}
