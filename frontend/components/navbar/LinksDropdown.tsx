@@ -26,7 +26,11 @@ function LinksDropdown() {
           <UserIcon />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-48" align="start" sideOffset={10}>
+      <DropdownMenuContent
+        className="w-48 bg-white text-black border border-gray-300 shadow-md"
+        align="start"
+        sideOffset={10}
+      >
         <SignedOut>
           <DropdownMenuItem>
             <div className="clerk-modal-container bg-white text-black">
@@ -43,7 +47,7 @@ function LinksDropdown() {
           </DropdownMenuItem>
         </SignedOut>
         <SignedIn>
-          {links.map((link) => {
+          {/* {links.map((link) => {
             // if (link.label === "dashboard" && !isAdmin) return null;
             return (
               <DropdownMenuItem key={link.href}>
@@ -52,7 +56,7 @@ function LinksDropdown() {
                 </Link>
               </DropdownMenuItem>
             );
-          })}
+          })} */}
           <DropdownMenuSeparator />
           <DropdownMenuItem>
             <SignOutLink />
