@@ -121,7 +121,7 @@ import { Watch } from "../../models/watch";
 import { useAppDispatch } from "../../hooks/storeHooks";
 import { addItemToCart } from "@/redux/features/cartSlice";
 import { toast } from "react-hot-toast";
-import { useUser, SignInButton } from "@clerk/nextjs"; // Import Clerk auth hooks
+import { useUser, SignInButton } from "@clerk/nextjs";
 
 const WatchDetailsClient = (props: {
   slug: string;
@@ -132,7 +132,7 @@ const WatchDetailsClient = (props: {
   const [price, setPrice] = useState(0);
   const [watchDetails, setWatchDetails] = useState<Watch>();
   const dispatch = useAppDispatch();
-  const { isSignedIn } = useUser(); // Get user authentication status
+  const { isSignedIn } = useUser();
 
   useEffect(() => {
     const fetchWatchDetails = async () => {
