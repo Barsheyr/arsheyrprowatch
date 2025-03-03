@@ -22,7 +22,7 @@ const WatchCategoryCard: FC<WatchCategoryCardProps> = (props) => {
             alt={categoryName}
             width={200}
             height={200}
-            className=" group-hover:scale-110 transition duration-300"
+            className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
           />
         </Link>
       </div>

@@ -17,7 +17,7 @@ const WatchCard: FC<WatchCardProps> = (props) => {
 
   return (
     <Link href={`/watches/${slug}`}>
-      <div className="border border-gray-100 bg-gray-100 rounded-lg h-[300px] mb-4 relative overflow-hidden group transition">
+      <div className=" rounded-lg h-[300px] mb-4 relative overflow-hidden group transition">
         <div className="mx-auto flex justify-center items-center">
           <Image
             src={imageUrl}
@@ -28,7 +28,7 @@ const WatchCard: FC<WatchCardProps> = (props) => {
           />
         </div>
 
-        <div className="absolute top-6 -right-11 group-hover:right-5 p-2 shadow-sm  flex flex-col items-center justify-center gap-y-2 opacity-0 group-hover:opacity-100 transition-all">
+        {/* <div className="absolute top-6 -right-11 group-hover:right-5 p-2 shadow-sm  flex flex-col items-center justify-center gap-y-2 opacity-0 group-hover:opacity-100 transition-all">
           <button>
             <div className="flex justify-center items-center text-white bg-blue-500 w-12 h-12 rounded-t-md">
               <FiShoppingCart className="text-3xl" />
@@ -37,12 +37,11 @@ const WatchCard: FC<WatchCardProps> = (props) => {
               <FaHeart color="white" />
             </div>
           </button>
-        </div>
+        </div> */}
       </div>
 
-      <div className="text-center">
+      <div className="text-center bg-black text-white rounded-2xl">
         <div className="font-semibold text-2xl">{watchName}</div>
-
         <h3>{price} $</h3>
       </div>
     </Link>

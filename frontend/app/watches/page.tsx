@@ -7,14 +7,15 @@ export default async function Watches() {
 
   return (
     <section
-      style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1519153017650-55aad829d4e6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      }}
+      // style={{
+      //   backgroundImage:
+      //     "url('https://images.unsplash.com/photo-1519153017650-55aad829d4e6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      // }}
+      className="px-20 mt-20"
     >
-      <div className="text-white">
+      <div className="text-black">
         <div className="text-center mx-auto max-w-5xl">
-          <h2 className="text-5xl py-10"> Watches </h2>
+          <h2 className="text-5xl py-10 font-bold"> Watches </h2>
           <p>
             Discover a collection of timepieces that combine classic design and
             modern functionality. Explore an array of watches, from elegant
@@ -26,8 +27,8 @@ export default async function Watches() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto mt-20">
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 text-white">
+      <div className="max-w-7xl mx-auto mt-20 py-20">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5 text-white">
           {watches.map((game) => (
             <WatchCard
               key={game._id}

@@ -9,7 +9,7 @@ import { RootState } from "../../redux/store";
 
 function CartButton() {
   const cartItems = useSelector((state: RootState) => state.cart.cartItems);
-  const { isSignedIn } = useAuth(); // Check if user is signed in
+  const { isSignedIn } = useAuth();
 
   // Calculate total items in the cart
   const totalItemsInCart = cartItems.reduce(
