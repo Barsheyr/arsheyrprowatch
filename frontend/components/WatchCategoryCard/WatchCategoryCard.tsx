@@ -27,7 +27,7 @@ const WatchCategoryCard: FC<WatchCategoryCardProps> = (props) => {
         </Link>
       </div>
 
-      <h3 className="font-bold text-2xl">{categoryName}</h3>
+      <h3 className="font-bold text-2xl text-center">{categoryName}</h3>
     </div>
   );
 };

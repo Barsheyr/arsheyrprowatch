@@ -6,15 +6,10 @@ export default async function Home() {
   const brands = await getBrands();
 
   return (
-    <section
-      style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1519153017650-55aad829d4e6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      }}
-    >
-      <div className="text-white">
+    <section>
+      <div className="py-20">
         <div className="text-center mx-auto max-w-5xl">
-          <h2 className="text-5xl py-10"> BRAND </h2>
+          <h2 className="text-5xl py-10 font-bold"> BRANDS </h2>
           <p>
             Discover a collection of timepieces that combine classic design and
             modern functionality. Explore an array of watches, from elegant

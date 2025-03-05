@@ -17,18 +17,19 @@ function AboutPage() {
       <div data-aos="fade-up">
         <h1 className="flex flex-wrap gap-2 sm:gap-x-6 items-center justify-center text-4xl font-bold leading-none tracking-wide sm:text-6xl">
           ADISA
-          <span className="bg-primary py-2 px-4 rounded-lg tracking-widest text-white">
+          <span className="bg-primary py-2 px-4 rounded-lg tracking-widest">
             ALAGO
           </span>
         </h1>
         <p className="mt-6 text-lg tracking-wide leading-8 max-w-2xl mx-auto text-muted-foreground lg:px-0 px-10">
           Welcome to Adisa Alago, where timeless craftsmanship meets
-          contemporary style. At WatchPro, we believe a watch is more than just
-          a timekeeping device—it’s a statement of individuality, an embodiment
-          of personal milestones, and a celebration of the art of precision. Our
-          mission is to provide watch enthusiasts and fashion-forward
-          individuals with a curated collection of premium timepieces that
-          seamlessly blend functionality, design, and sophistication.
+          contemporary style. At Adisa Alago, we believe a watch is more than
+          just a timekeeping device—it’s a statement of individuality, an
+          embodiment of personal milestones, and a celebration of the art of
+          precision. Our mission is to provide watch enthusiasts and
+          fashion-forward individuals with a curated collection of premium
+          timepieces that seamlessly blend functionality, design, and
+          sophistication.
         </p>
       </div>
       <div data-aos="fade-right">
