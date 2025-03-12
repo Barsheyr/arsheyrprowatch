@@ -8,8 +8,8 @@ export default async function Home() {
   return (
     <section>
       <div className="py-20">
-        <div className="text-center mx-auto max-w-5xl">
-          <h2 className="text-5xl py-10 font-bold"> BRANDS </h2>
+        <div className="mx-auto max-w-5xl px-10">
+          <h2 className="text-5xl py-10 font-bold "> BRANDS </h2>
           <p>
             Discover a collection of timepieces that combine classic design and
             modern functionality. Explore an array of watches, from elegant
@@ -21,7 +21,7 @@ export default async function Home() {
         </div>
 
         <div className="max-w-7xl mx-auto mt-20">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 mt-10 p-20">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-10 p-20">
             {brands.map((brand) => (
               <WatchCategoryCard
                 key={brand._id}

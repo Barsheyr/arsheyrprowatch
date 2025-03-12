@@ -5,12 +5,6 @@ import BrandSample from "@/components/home/BrandSample";
 import Testimonial from "@/components/home/Testimonial";
 import WatchCard from "@/components/WatchCard/WatchCard";
 import Container from "@/components/global/Container";
-const Iwatch2 = "/images/iwatch2.png";
-const Iwatch = "/images/iwatch.png";
-const Iwatch3 = "/images/iwatch3.png";
-const Iwatch4 = "/images/iwatch4.png";
-const Iwatch5 = "/images/fitbit.png";
-const Iwatch6 = "/images/samsungpro.png";
 
 import Newsletter from "@/components/home/Newsletter";
 import Link from "next/link";
@@ -22,8 +16,13 @@ import { getBrands, getWatches } from "../lib/api";
 export default async function Home() {
   const brands = await getBrands();
   const watches = await getWatches();
-  const isTrendingGames = watches?.filter((watch) => watch.isTrending);
-  const isFeaturedGame = watches?.find((watch) => watch.isFeatured);
+  // const isTrendingGames = watches?.filter((watch) => watch.isTrending);
+  const isTrendingWatches = watches.watches.filter(
+    (watch: Watch) => watch.isTrending
+  );
+  // const featuredWatch = watches.watches.find(
+  //   (watch: Watch) => watch.isFeatured
+  // );
 
   return (
     <section>
@@ -39,7 +38,7 @@ export default async function Home() {
 
           <div>
             <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
-              {isTrendingGames.map((watch) => (
+              {isTrendingWatches.map((watch) => (
                 <WatchCard
                   key={watch._id}
                   watchName={watch.name}
@@ -69,7 +68,7 @@ export default async function Home() {
           </div>
 
           <div className="max-w-7xl mx-auto mt-20">
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 mt-10 p-20">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-10 p-20">
               {brands.map((brand) => (
                 <WatchCategoryCard
                   key={brand._id}

@@ -1,12 +1,13 @@
 import WatchCard from "@/components/WatchCard/WatchCard";
-// import NewsLetter from "@/components/NewsLetter/NewsLetter";
 import { getBrand, getBrandWatches } from "@/lib/api";
 
-const WatchBrand = async (props: { params: { slug: string } }) => {
-  const {
-    params: { slug },
-  } = props;
+const WatchBrand = async ({ params }: { params?: { slug?: string } }) => {
+  // Ensure params exists before accessing slug
+  if (!params || !params.slug) {
+    return <p>Error: No brand specified.</p>;
+  }
 
+  const slug = params.slug; // Access slug safely
   const watches = await getBrandWatches(slug);
   const { subtitle } = await getBrand(slug);
 
@@ -32,10 +33,17 @@ const WatchBrand = async (props: { params: { slug: string } }) => {
         </p>
         <div className="flex rounded gap-8 flex-wrap py-10">
           {watches.map((watch) => (
+            // <WatchCard
+            //   key={watch._id}
+            //   watchName={watch.name}
+            //   imageUrl={watch.images[0].url}
+            //   price={watch.price}
+            //   slug={watch.slug.current}
+            // />
             <WatchCard
-              key={watch._id}
+              key={watch._id || watch.slug.current}
               watchName={watch.name}
-              imageUrl={watch.images[0].url}
+              imageUrl={watch.images?.[0]?.url || ""}
               price={watch.price}
               slug={watch.slug.current}
             />

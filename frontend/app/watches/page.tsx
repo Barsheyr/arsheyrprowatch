@@ -1,44 +1,80 @@
-import React from "react";
+"use client"
+import React, { useState, useEffect } from "react";
 import { getWatches } from "../../lib/api";
 import WatchCard from "@/components/WatchCard/WatchCard";
 
-export default async function Watches() {
-  const watches = await getWatches();
+export default function Watches() {
+  // State for watches and pagination
+  const [watches, setWatches] = useState([]);
+  const [totalPages, setTotalPages] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Fetch watches when page changes
+  useEffect(() => {
+    async function fetchWatches() {
+      const { watches, totalPages } = await getWatches(currentPage, 8); // Fetch with pagination
+      setWatches(watches);
+      setTotalPages(totalPages);
+    }
+    fetchWatches();
+  }, [currentPage]);
+
+  // Handle pagination navigation
+  const nextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
 
   return (
-    <section
-      // style={{
-      //   backgroundImage:
-      //     "url('https://images.unsplash.com/photo-1519153017650-55aad829d4e6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      // }}
-      className="px-20 mt-20"
-    >
-      <div className="text-black">
-        <div className="text-center mx-auto max-w-5xl">
-          <h2 className="text-5xl py-10 font-bold"> Watches </h2>
-          <p>
-            Discover a collection of timepieces that combine classic design and
-            modern functionality. Explore an array of watches, from elegant
-            chronographs to minimalist styles, crafted for durability and
-            precision. Make a statement with versatile designs, perfect for
-            daily wear or special occasions, and experience the art of
-            watchmaking that will keep you stylish and punctual.
-          </p>
-        </div>
+    <section className="px-20 mt-20">
+      <div className="text-black text-center mx-auto max-w-5xl">
+        <h2 className="text-5xl py-10 font-bold">Watches</h2>
+        <p>
+        Explore our exquisite collection of timepieces that seamlessly blend timeless elegance with contemporary innovation. 
+        Each watch in our selection is crafted with precision, reflecting a commitment to superior craftsmanship and refined aesthetics. 
+        Whether you appreciate the classic charm of vintage-inspired designs or seek the cutting-edge functionality of modern technology, our collection offers something for every discerning taste.
+        </p>
       </div>
 
-      <div className="max-w-7xl mx-auto mt-20 py-20">
+      {/* Watches Grid */}
+      <div className="max-w-7xl mx-auto  py-20">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5 text-white">
-          {watches.map((game) => (
+          {watches.map((watch) => (
             <WatchCard
-              key={game._id}
-              watchName={game.name}
-              imageUrl={game.images[0].url}
-              slug={game.slug.current}
-              price={game.price}
+              key={watch._id}
+              watchName={watch.name}
+              imageUrl={watch.images[0].url}
+              slug={watch.slug.current}
+              price={watch.price}
             />
           ))}
         </div>
+      </div>
+
+      {/* Pagination Controls */}
+      <div className="flex justify-center py-10">
+        <button
+          onClick={prevPage}
+          disabled={currentPage === 1}
+          className="px-4 py-2 mx-2 bg-gray-300 rounded disabled:opacity-50"
+        >
+          Previous
+        </button>
+        <span className="px-4 py-2 mx-2 text-lg">{`Page ${currentPage} of ${totalPages}`}</span>
+        <button
+          onClick={nextPage}
+          disabled={currentPage === totalPages}
+          className="px-4 py-2 mx-2 bg-gray-300 rounded disabled:opacity-50"
+        >
+          Next
+        </button>
       </div>
     </section>
   );
