@@ -5,7 +5,7 @@ import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 const NavLinks = () => {
   return (
-    <div className="flex items-center justify-between text-white gap-5 text-sm">
+    <div className="flex flex-col lg:flex-row items-start gap-3 text-black lg:text-white text-sm">
       {links.map((link) => {
         if (link.label === "cart") {
           return (

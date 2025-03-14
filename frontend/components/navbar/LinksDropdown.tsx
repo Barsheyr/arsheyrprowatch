@@ -13,6 +13,7 @@ import UserIcon from "./UserIcon";
 import SignOutLink from "./SignOutLink";
 import { SignInButton, SignUpButton, SignedIn, SignedOut } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
+import NavLinks from "./NavLinks";
 
 function LinksDropdown() {
   // const { userId } = auth();
@@ -27,7 +28,7 @@ function LinksDropdown() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className="w-48 bg-white text-black border border-gray-300 shadow-md"
+        className="w-48 bg-white text-black border border-gray-300 shadow-md flex flex-col"
         align="start"
         sideOffset={10}
       >
@@ -47,16 +48,10 @@ function LinksDropdown() {
           </DropdownMenuItem>
         </SignedOut>
         <SignedIn>
-          {/* {links.map((link) => {
-            // if (link.label === "dashboard" && !isAdmin) return null;
-            return (
-              <DropdownMenuItem key={link.href}>
-                <Link href={link.href} className="capitalize w-full">
-                  {link.label}
-                </Link>
-              </DropdownMenuItem>
-            );
-          })} */}
+          {/* Mobile NavLinks (Hidden on Desktop) */}
+          <div className="lg:hidden flex flex-col">
+            <NavLinks />
+          </div>
           <DropdownMenuSeparator />
           <DropdownMenuItem>
             <SignOutLink />

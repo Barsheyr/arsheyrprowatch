@@ -26,7 +26,7 @@ const WatchCard: FC<WatchCardProps> = (props) => {
         </div>
       </div>
 
-      <div className="text-center bg-slate-200 text-black rounded-2xl">
+      <div className="text-center text-black rounded-2xl">
         <div className="font-semibold text-2xl">{watchName}</div>
         <h3>{price} $</h3>
       </div>

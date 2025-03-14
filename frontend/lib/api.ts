@@ -22,29 +22,6 @@ export const getBrands = async (): Promise<Brand[]> => {
   return brands;
 };
 
-// export const getWatches = async (): Promise<Watch[]> => {
-//   const query = `*[_type == "watch"] {
-//         name,
-//         price,
-//         images,
-//         isFeatured,
-//         isTrending,
-//         'category': *[_id == ^.category._ref][0] {
-//           name,
-//           slug {
-//             current
-//           }
-//         },
-//         slug,
-//         quantity,
-//         description
-//       }`;
-
-//   const watches: Watch[] = await sanityClient.fetch({ query });
-
-//   return watches;
-// };
-
 export const getWatches = async (
   page: number = 1,
   limit: number = 8
