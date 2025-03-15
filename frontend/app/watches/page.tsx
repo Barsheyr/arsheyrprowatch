@@ -1,11 +1,12 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 import { getWatches } from "../../lib/api";
 import WatchCard from "@/components/WatchCard/WatchCard";
 
 export default function Watches() {
   // State for watches and pagination
-  const [watches, setWatches] = useState([]);
+  const [watches, setWatches] = useState<Watch[]>([]);
+
   const [totalPages, setTotalPages] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -37,9 +38,13 @@ export default function Watches() {
       <div className="text-black text-center mx-auto max-w-5xl">
         <h2 className="text-5xl py-10 font-bold">Watches</h2>
         <p>
-        Explore our exquisite collection of timepieces that seamlessly blend timeless elegance with contemporary innovation. 
-        Each watch in our selection is crafted with precision, reflecting a commitment to superior craftsmanship and refined aesthetics. 
-        Whether you appreciate the classic charm of vintage-inspired designs or seek the cutting-edge functionality of modern technology, our collection offers something for every discerning taste.
+          Explore our exquisite collection of timepieces that seamlessly blend
+          timeless elegance with contemporary innovation. Each watch in our
+          selection is crafted with precision, reflecting a commitment to
+          superior craftsmanship and refined aesthetics. Whether you appreciate
+          the classic charm of vintage-inspired designs or seek the cutting-edge
+          functionality of modern technology, our collection offers something
+          for every discerning taste.
         </p>
       </div>
 

@@ -1,13 +1,11 @@
 import WatchCard from "@/components/WatchCard/WatchCard";
 import { getBrand, getBrandWatches } from "@/lib/api";
 
-const WatchBrand = async ({ params }: { params?: { slug?: string } }) => {
-  // Ensure params exists before accessing slug
-  if (!params || !params.slug) {
-    return <p>Error: No brand specified.</p>;
-  }
+const WatchBrand = async (props: { params: { slug: string } }) => {
+  const {
+    params: { slug },
+  } = props;
 
-  const slug = params.slug; // Access slug safely
   const watches = await getBrandWatches(slug);
   const { subtitle } = await getBrand(slug);
 
