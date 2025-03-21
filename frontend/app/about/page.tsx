@@ -29,7 +29,7 @@ function AboutPage() {
           precision. Our mission is to provide watch enthusiasts and
           fashion-forward individuals with a curated collection of premium
           timepieces that seamlessly blend functionality, design, and
-          sophistication.
+          sophistication. ajasjas
         </p>
       </div>
       <div data-aos="fade-right">
