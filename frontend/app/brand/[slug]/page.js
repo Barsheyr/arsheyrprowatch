@@ -1,10 +1,8 @@
 import WatchCard from "@/components/WatchCard/WatchCard";
 import { getBrand, getBrandWatches } from "@/lib/api";
 
-const WatchBrand = async (props: { params: { slug: string } }) => {
-  const {
-    params: { slug },
-  } = props;
+const WatchBrand = async ({ params }) => {
+  const { slug } = params;
 
   const watches = await getBrandWatches(slug);
   const { subtitle } = await getBrand(slug);
