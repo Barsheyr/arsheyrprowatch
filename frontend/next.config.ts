@@ -1,14 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    domains: ["images.unsplash.com"], // Allow images from Unsplash
-  },
-  output: "standalone", // Ensure correct deployment output
-  experimental: {
-    appDir: true, // If using the new app directory
-  },
+  output: "standalone", // Add this line for Vercel deployment
   reactStrictMode: true,
-  trailingSlash: false, // Ensure URLs are correctly handled
+  experimental: {
+    serverActions: {
+      bodySizeLimit: "2mb",
+    },
+  },
+  images: {
+    domains: ["images.unsplash.com", "cdn.sanity.io"],
+  },
 };
 
 module.exports = nextConfig;
