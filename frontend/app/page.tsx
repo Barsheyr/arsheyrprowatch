@@ -5,21 +5,21 @@ import BrandSample from "@/components/home/BrandSample";
 import Testimonial from "@/components/home/Testimonial";
 import WatchCard from "@/components/WatchCard/WatchCard";
 import Container from "@/components/global/Container";
-
 import Newsletter from "@/components/home/Newsletter";
-import Link from "next/link";
-import Image from "next/image";
+
 import WatchCategoryCard from "@/components/WatchCategoryCard/WatchCategoryCard";
 
 import { getBrands, getWatches } from "../lib/api";
 
 export default async function Home() {
   const brands = await getBrands();
-  const watches = await getWatches();
-  // const isTrendingGames = watches?.filter((watch) => watch.isTrending);
-  const isTrendingWatches = watches.watches.filter(
-    (watch: Watch) => watch.isTrending
-  );
+  const { watches } = await getWatches();
+
+  const isTrendingWatches = watches.filter((watch) => watch.isTrending);
+
+  // const isTrendingWatches = watches.watches.filter(
+  //   (watch: Watch) => watch.isTrending
+  // );
   // const featuredWatch = watches.watches.find(
   //   (watch: Watch) => watch.isFeatured
   // );

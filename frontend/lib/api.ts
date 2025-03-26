@@ -22,6 +22,50 @@ export const getBrands = async (): Promise<Brand[]> => {
   return brands;
 };
 
+// export const getWatches = async (
+//   page: number = 1,
+//   limit: number = 8
+// ): Promise<{
+//   filter(arg0: (watch: { isTrending: any }) => any): unknown;
+//   watches: Watch[];
+//   totalPages: number;
+// }> => {
+//   const start = (page - 1) * limit;
+
+//   const query = `{
+//     "watches": *[_type == "watch"] | order(_createdAt desc) [${start}...${
+//     start + limit
+//   }] {
+//       _id,
+//       name,
+//       price,
+//       images,
+//       isFeatured,
+//       isTrending,
+//       'category': *[_id == ^.category._ref][0] {
+//         name,
+//         slug {
+//           current
+//         }
+//       },
+//       slug,
+//       quantity,
+//       description
+//     },
+//     "total": count(*[_type == "watch"])
+//   }`;
+
+//   // Explicitly define the type of data returned by fetch
+//   const data = await sanityClient.fetch<WatchesResponse>({ query });
+
+//   // Now TypeScript knows `total` exists
+//   const { watches, total } = data;
+
+//   const totalPages = Math.ceil(total / limit);
+
+//   return { watches, totalPages };
+// };
+
 export const getWatches = async (
   page: number = 1,
   limit: number = 8
@@ -51,12 +95,8 @@ export const getWatches = async (
     "total": count(*[_type == "watch"])
   }`;
 
-  // Explicitly define the type of data returned by fetch
   const data = await sanityClient.fetch<WatchesResponse>({ query });
-
-  // Now TypeScript knows `total` exists
   const { watches, total } = data;
-
   const totalPages = Math.ceil(total / limit);
 
   return { watches, totalPages };

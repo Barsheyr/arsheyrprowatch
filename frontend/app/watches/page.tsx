@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { getWatches } from "../../lib/api";
 import WatchCard from "@/components/WatchCard/WatchCard";
+import { Watch } from "../../models/watch"; // Import Watch type
 
 export default function Watches() {
   // State for watches and pagination
