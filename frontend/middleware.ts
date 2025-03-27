@@ -75,3 +75,38 @@
 //     "/(api|trpc)(.*)",
 //   ],
 // };
+
+import { clerkMiddleware } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+
+const isPublicRoute = (path: string) => {
+  const publicRoutes = ["/", "/about", "/brand", "/watches", "/products(.*)"];
+
+  return publicRoutes.some((route) =>
+    new RegExp(`^${route.replace(/\.\*/g, ".*")}$`).test(path)
+  );
+};
+
+export default clerkMiddleware(async (auth, request: NextRequest) => {
+  // Check if the route is public
+  if (isPublicRoute(request.nextUrl.pathname)) {
+    return NextResponse.next();
+  }
+
+  // Protect cart route
+  if (request.nextUrl.pathname.startsWith("/cart")) {
+    const { userId } = await auth();
+
+    if (!userId) {
+      return NextResponse.redirect(new URL("/", request.url));
+    }
+  }
+
+  // Allow other routes to continue
+  return NextResponse.next();
+});
+
+export const config = {
+  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+};
