@@ -6,9 +6,7 @@ import Testimonial from "@/components/home/Testimonial";
 import WatchCard from "@/components/WatchCard/WatchCard";
 import Container from "@/components/global/Container";
 import Newsletter from "@/components/home/Newsletter";
-
 import WatchCategoryCard from "@/components/WatchCategoryCard/WatchCategoryCard";
-
 import { getBrands, getWatches } from "../lib/api";
 
 export default async function Home() {
@@ -16,13 +14,6 @@ export default async function Home() {
   const { watches } = await getWatches();
 
   const isTrendingWatches = watches.filter((watch) => watch.isTrending);
-
-  // const isTrendingWatches = watches.watches.filter(
-  //   (watch: Watch) => watch.isTrending
-  // );
-  // const featuredWatch = watches.watches.find(
-  //   (watch: Watch) => watch.isFeatured
-  // );
 
   return (
     <section>
